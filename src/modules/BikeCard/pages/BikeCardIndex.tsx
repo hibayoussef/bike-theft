@@ -1,5 +1,5 @@
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
+import { Card, CardContent, Typography, CardMedia, Box } from "@mui/material";
 import Logo from "../../../assets/images/Logo.png";
 import type { BikeCardProps } from "../../../types/BikeCardProps";
 
@@ -18,7 +18,7 @@ const AllBikesIndex: React.FC<BikeCardProps> = ({
         flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
         maxWidth: 600,
-        margin: 2,
+        margin: 1,
         boxShadow: 3,
       }}
     >

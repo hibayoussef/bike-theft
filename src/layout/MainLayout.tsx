@@ -17,7 +17,6 @@ const MainLayout = ({ title, headerComponent, children }: any) => {
             width: "100%",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: "red",
           }}
         >
           <ContentWrapper>{children}</ContentWrapper>

@@ -25,9 +25,7 @@ const BikeList = () => {
     <div>
       <BikeFilters onSearch={handleSearch} />
       {isLoading && <p>Loading...</p>}
-      <div>
         <AllBikesIndex data={data} />
-      </div>
     </div>
   );
 };

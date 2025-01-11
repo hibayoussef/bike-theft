@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, Box, Button } from "@mui/material";
+import { Container, Grid, Typography, Box, Pagination } from "@mui/material";
 import BikeCard from "../../BikeCard/pages/BikeCardIndex";
 import type { Theft } from "../../../types/Theft";
 import Logo from "../../../assets/images/Logo.png";
@@ -18,8 +18,14 @@ const AllBikes = ({
 
   return (
     <Container>
-      <Typography variant="h4" component="h1" gutterBottom textAlign="left">
-        Reported Bike Thefts {results_count}
+      <Typography
+        variant="h4"
+        component="h1"
+        gutterBottom
+        textAlign="left"
+        color="#2C3971"
+      >
+        Stolen bikes {results_count}
       </Typography>
       <Grid container spacing={2} justifyContent="center">
         {data?.bikes?.length > 0 ? (
@@ -44,24 +50,25 @@ const AllBikes = ({
       </Grid>
 
       {results_count > 0 && (
-        <Box display="flex" justifyContent="center" mt={2}>
-          <Button
-            variant="contained"
-            onClick={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </Button>
-          <Typography variant="body1" sx={{ mx: 2 }}>
-            Page {currentPage} of {totalPages}
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={() => onPageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </Button>
+        <Box
+          sx={{
+            alignContent: "center",
+            display: "flex",
+            justifyContent: "center",
+            mt: "10px",
+          }}
+        >
+          <Pagination
+            page={currentPage}
+            onChange={(e, page) => onPageChange(page)}
+            count={totalPages}
+            sx={{
+              ".MuiPaginationItem-root.Mui-selected": {
+                backgroundColor: "origin.main",
+                color: "white",
+              },
+            }}
+          />
         </Box>
       )}
     </Container>

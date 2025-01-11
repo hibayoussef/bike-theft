@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, CardContent, Typography, CardMedia, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.png";
 import type { BikeCardProps } from "../../../types/BikeCardProps";
 
-const BikeCard: React.FC<BikeCardProps> = ({
+const BikeCard: React.FC<BikeCardProps & { id: number }> = ({
+  id,
   title,
   description,
   theftDate,
@@ -11,8 +13,15 @@ const BikeCard: React.FC<BikeCardProps> = ({
   location,
   image,
 }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/bike/${id}`);
+  };
+
   return (
     <Card
+      onClick={handleCardClick}
       sx={{
         display: "flex",
         flexDirection: { xs: "column", sm: "row" },
@@ -20,6 +29,7 @@ const BikeCard: React.FC<BikeCardProps> = ({
         maxWidth: 600,
         margin: 1,
         boxShadow: 3,
+        cursor: "pointer",
       }}
     >
       <CardMedia

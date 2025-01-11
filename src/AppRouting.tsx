@@ -1,5 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/pages/home";
+import React from "react";
+import Loader from "./components/shared/Loader";
+import { ReactQueryDevtools } from "react-query/types/devtools";
+import BikeCardDetailsRouting from "./modules/BikeCardDetails/BikeCardDetailsRouting";
 
 const AppRouting = () => {
   return (
@@ -21,20 +25,15 @@ const AppRouting = () => {
       <Route path="/check-code/:email" element={<VerificationCodeForm />} /> */}
 
       {/* Admin */}
-      {/* <Route
-        path="/*"
+      <Route
+        path="/bikes/:id/*"
         element={
-          <AuthRedirect
-            shouldBeLogged={true}
-            allowedRoles={["super_admin", "admin"]}
-          >
-            <React.Suspense fallback={<Loader />}>
-              <DashboardRouting />
-              <ReactQueryDevtools initialIsOpen={false} />
-            </React.Suspense>
-          </AuthRedirect>
+          <React.Suspense fallback={<Loader />}>
+            <BikeCardDetailsRouting />
+            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+          </React.Suspense>
         }
-      /> */}
+      />
     </Routes>
   );
 };

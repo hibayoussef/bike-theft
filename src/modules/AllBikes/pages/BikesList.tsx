@@ -3,6 +3,7 @@ import BikeFilters from "../../../components/Filters/BikeFilter";
 import useBikes from "../hooks/useBike";
 import { Typography } from "@mui/material";
 import AllBikes from "../components/AllBikes";
+import Loader from "../../../components/shared/Loader";
 
 const BikeList = () => {
   const [query, setQuery] = useState("");
@@ -31,7 +32,7 @@ const BikeList = () => {
   return (
     <div>
       <BikeFilters onSearch={handleSearch} />
-      {isLoading && <Typography>Loading...</Typography>}
+      {isLoading && <Loader />}
       {data && (
         <AllBikes
           data={data.bikes}

@@ -1,6 +1,7 @@
 import { Container, Grid, Typography, Box, Button } from "@mui/material";
 import BikeCard from "../../BikeCard/pages/BikeCardIndex";
 import type { Theft } from "../../../types/Theft";
+import Logo from "../../../assets/images/Logo.png";
 
 const AllBikes = ({
   data,
@@ -15,26 +16,23 @@ const AllBikes = ({
 }) => {
   const totalPages = Math.ceil(results_count / 10); // Assuming 10 bikes per page
 
-  console.log('reeee:', results_count, totalPages)
+  console.log("reeee:", results_count, totalPages);
   return (
     <Container>
-      <Typography variant="h4" component="h1" gutterBottom textAlign="center">
+      <Typography variant="h4" component="h1" gutterBottom textAlign="left">
         Reported Bike Thefts {results_count}
       </Typography>
       <Grid container spacing={2} justifyContent="center">
         {data?.length > 0 ? (
           data?.map((bike: Theft) => (
-            <Grid item xs={12} sm={6} md={6} key={bike.id}>
+            <Grid item xs={12} sm={12} md={6} key={bike.id}>
               <BikeCard
                 title={bike.title}
                 description={bike.description}
                 theftDate={bike.date_stolen}
                 reportedDate={bike.reportedDate}
                 location={bike.stolen_location}
-                image={
-                  bike.thumb ||
-                  "https://via.placeholder.com/200x150?text=Bike+Image"
-                }
+                image={bike.thumb !== null ? bike.thumb : Logo}
               />
             </Grid>
           ))

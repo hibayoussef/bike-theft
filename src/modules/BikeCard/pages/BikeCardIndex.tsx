@@ -26,7 +26,7 @@ const BikeCard: React.FC<BikeCardProps> = ({
         component="img"
         sx={{
           width: { xs: "100%", sm: 200 },
-          height: { xs: 200, sm: 150 },
+          height: { xs: 330, sm: 150 },
           objectFit: "cover",
         }}
         image={image || Logo}

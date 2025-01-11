@@ -18,9 +18,19 @@ const useBikes = ({
     (state) => state
   );
 
+  // دالة للحصول على البيانات من الـ API
   const queryResult = useQuery(
     ["bikes", currentPage, query, filters],
-    () => _BikesApi.index({ page: currentPage, query, filters }),
+    async () => {
+      const bikes = await _BikesApi.index({
+        page: currentPage,
+        query,
+        filters,
+      });
+      const results_count = await _BikesApi.getCount({ query, filters });
+
+      return { bikes, results_count };
+    },
     {
       onSuccess: (data) => {
         setThefts(data.bikes, data.results_count);

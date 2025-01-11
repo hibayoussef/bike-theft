@@ -1,8 +1,7 @@
 // src/shared/components/PageWrapper.tsx
-import React from "react";
 import { Box, Container } from "@mui/material";
 
-const PageWrapper = ({ children }) => {
+const PageWrapper = ({ children }: any) => {
   return (
     <Box>
       <Container

@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, CardMedia, Box } from "@mui/material";
 import Logo from "../../../assets/images/Logo.png";
 import type { BikeCardProps } from "../../../types/BikeCardProps";
 
-const AllBikesIndex: React.FC<BikeCardProps> = ({
+const BikeCard: React.FC<BikeCardProps> = ({
   title,
   description,
   theftDate,
@@ -22,24 +22,17 @@ const AllBikesIndex: React.FC<BikeCardProps> = ({
         boxShadow: 3,
       }}
     >
-      {/* {image && ( */}
       <CardMedia
         component="img"
         sx={{
-          width: { xs: "100%", sm: 200 }, 
-          height: { xs: 200, sm: 150 }, 
+          width: { xs: "100%", sm: 200 },
+          height: { xs: 200, sm: 150 },
           objectFit: "cover",
         }}
-        image={Logo}
+        image={image || Logo}
         alt={title}
       />
-      {/* )} */}
-      <CardContent
-        sx={{
-          flex: 1,
-          textAlign: { xs: "center", sm: "left" }, 
-        }}
-      >
+      <CardContent sx={{ flex: 1, textAlign: { xs: "center", sm: "left" } }}>
         <Typography gutterBottom variant="h5" component="div">
           {title || "Unknown Title"}
         </Typography>
@@ -62,4 +55,4 @@ const AllBikesIndex: React.FC<BikeCardProps> = ({
   );
 };
 
-export default AllBikesIndex;
+export default BikeCard;

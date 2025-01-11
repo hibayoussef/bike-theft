@@ -31,9 +31,7 @@ const useBikes = ({
         setError(error.message || "Failed to fetch bikes");
         setLoading(false);
       },
-      onSettled: () => {
-        setLoading(false);
-      },
+      onSettled: () => setLoading(false),
     }
   );
 

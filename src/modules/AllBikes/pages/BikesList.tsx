@@ -2,6 +2,8 @@ import { useState } from "react";
 import BikeFilters from "../../../components/Filters/BikeFilter";
 import AllBikesIndex from "../components/AllBikes";
 import useBikes from "../hooks/useBike";
+import { Typography } from "@mui/material";
+import AllBikes from "../components/AllBikes";
 
 const BikeList = () => {
   const [query, setQuery] = useState("");
@@ -24,8 +26,8 @@ const BikeList = () => {
   return (
     <div>
       <BikeFilters onSearch={handleSearch} />
-      {isLoading && <p>Loading...</p>}
-        <AllBikesIndex data={data} />
+      {isLoading && <Typography>Loading...</Typography>}
+      {data && <AllBikes data={data} />}
     </div>
   );
 };

@@ -1,26 +1,23 @@
-import {
-  Container,
-  Grid,
-  Typography
-} from "@mui/material";
-import BikeCardIndex from "../../BikeCard/pages/BikeCardIndex";
+import { Container, Grid, Typography } from "@mui/material";
+import BikeCard from "../../BikeCard/pages/BikeCardIndex";
+import type { Theft } from "../../../types/Theft";
 
 
-const AllBikes: any = ( data : any) => {
+const AllBikes = ({ data }: { data: any }) => {
   return (
     <Container>
       <Typography variant="h4" component="h1" gutterBottom textAlign="center">
         Reported Bike Thefts
       </Typography>
       <Grid container spacing={2} justifyContent="center">
-        {data?.data?.length > 0 ? (
-          data?.data.map((bike: any) => (
-            <Grid item xs={6} key={bike.id}>
-              <BikeCardIndex
+        {data?.length > 0 ? (
+          data?.map((bike: Theft) => (
+            <Grid item xs={12} sm={6} md={6} key={bike.id}>
+              <BikeCard
                 title={bike.title}
                 description={bike.description}
                 theftDate={bike.date_stolen}
-                reportedDate={bike?.reportedDate}
+                reportedDate={bike.reportedDate}
                 location={bike.stolen_location}
                 image={
                   bike.thumb ||

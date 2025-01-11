@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const BikeDetailsComponent = () => {
+const BikeCardComponent = () => {
   return (
     <>
       <Outlet />
@@ -8,4 +8,4 @@ const BikeDetailsComponent = () => {
   );
 };
 
-export default BikeDetailsComponent;
+export default BikeCardComponent;

@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import BikeDetailsComponent from "./BikeDetailsComponent";
+import BikeDetailsComponent from "./BikeCardComponent";
 import BikeCardIndex from "./pages/BikeCardIndex";
+import BikeCardComponent from "./BikeCardComponent";
 
-const BikeDetailsRouting = () => {
+const BikeCardRouting = () => {
   return (
     <Routes>
-      <Route element={<BikeDetailsComponent />}>
+      <Route element={<BikeCardComponent />}>
         <Route path="/" element={<BikeCardIndex />} />
       </Route>
       <Route path="*" element={<p>not found 404</p>} />
@@ -13,4 +14,4 @@ const BikeDetailsRouting = () => {
   );
 };
 
-export default BikeDetailsRouting;
+export default BikeCardRouting;

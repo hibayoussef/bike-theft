@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import type { FilterProps } from "../../../types/FilterProps";
+import type { FilterProps } from "../../types/FilterProps";
 
 
 

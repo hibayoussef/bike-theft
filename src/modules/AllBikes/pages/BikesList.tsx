@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import AllBikesIndex from "./AllBikesIndex";
+import { useState } from "react";
+import BikeFilters from "../../../components/Filters/BikeFilter";
+import AllBikesIndex from "../components/AllBikes";
 import useBikes from "../hooks/useBike";
-import BikeFilters from "./BikeFilter";
 
 const BikeList = () => {
   const [query, setQuery] = useState("");
@@ -26,17 +26,7 @@ const BikeList = () => {
       <BikeFilters onSearch={handleSearch} />
       {isLoading && <p>Loading...</p>}
       <div>
-        {/* {data?.bikes.map((bike: any) => ( */}
-              <AllBikesIndex
-                  data={data}
-            // key={bike.id}
-            // title={bike.title}
-            // description={bike.description}
-            // theftDate={bike.date_stolen}
-            // location={bike.stolen_location}
-            // image={bike.thumb}
-          />
-        {/* ))} */}
+        <AllBikesIndex data={data} />
       </div>
     </div>
   );

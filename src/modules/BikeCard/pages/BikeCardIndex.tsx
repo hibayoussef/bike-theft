@@ -1,5 +1,5 @@
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
-import { Card, CardContent, Typography, CardMedia, Box } from "@mui/material";
 import Logo from "../../../assets/images/Logo.png";
 import type { BikeCardProps } from "../../../types/BikeCardProps";
 
@@ -37,7 +37,7 @@ const AllBikesIndex: React.FC<BikeCardProps> = ({
       <CardContent
         sx={{
           flex: 1,
-          textAlign: { xs: "center", sm: "left" }, // توسيط النصوص للشاشات الصغيرة
+          textAlign: { xs: "center", sm: "left" }, 
         }}
       >
         <Typography gutterBottom variant="h5" component="div">

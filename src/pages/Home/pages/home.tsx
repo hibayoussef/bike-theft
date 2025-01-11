@@ -23,13 +23,6 @@ const Home = () => {
           <BikeList />
         </Box>
       </MainLayout>
-
-      {/* <Box
-        id="footer"
-        sx={{ paddingTop: "4rem", textAlign: "center", margin: 0 }}
-      >
-        <Footer />
-      </Box> */}
     </>
   );
 };

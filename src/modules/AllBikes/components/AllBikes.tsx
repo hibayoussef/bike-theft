@@ -2,6 +2,7 @@ import { Container, Grid, Typography, Box, Pagination } from "@mui/material";
 import BikeCard from "../../BikeCard/pages/BikeCardIndex";
 import type { Theft } from "../../../types/Theft";
 import Logo from "../../../assets/images/Logo.png";
+import NoData from "../../../components/shared/noData/NoData";
 
 const AllBikes = ({
   data,
@@ -43,9 +44,7 @@ const AllBikes = ({
             </Grid>
           ))
         ) : (
-          <Typography variant="h6" textAlign="center" color="textSecondary">
-            No thefts reported at the moment.
-          </Typography>
+          <NoData text="No bike theft cases found." />
         )}
       </Grid>
 

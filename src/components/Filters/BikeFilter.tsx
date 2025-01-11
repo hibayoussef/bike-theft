@@ -12,40 +12,35 @@ const BikeFilters: React.FC<FilterProps> = ({ onSearch }) => {
   };
 
   return (
-    <Box display="flex" justifyContent="center" mb={2}>
+    <Box display="flex" justifyContent="center" mb={2} ml={1}>
       <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid item md={10} xs={10}>
           <TextField
             label="Search by title"
             variant="outlined"
             value={query}
+            fullWidth
             onChange={(e) => setQuery(e.target.value)}
-            sx={{ marginRight: 2 }}
           />
         </Grid>
-        <Grid item xs={4}>
-          <TextField
-            label="Start Date"
-            type="date"
-            InputLabelProps={{ shrink: true }}
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            sx={{ marginRight: 2 }}
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <TextField
-            label="End Date"
-            type="date"
-            InputLabelProps={{ shrink: true }}
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            sx={{ marginRight: 2 }}
-          />
-          <Button variant="contained" color="primary" onClick={handleSearch}>
+        <Grid item>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSearch}
+            fullWidth
+            sx={{
+              backgroundColor: "#2C3971",
+              height: "53px", // يتطابق مع ارتفاع TextField
+              width: "160px",
+              fontSize: "1rem", // حجم الخط أكبر
+            }}
+          >
             Search
           </Button>
         </Grid>
+
+        {/* </Grid> */}
       </Grid>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import BikeFilters from "../../../components/Filters/BikeFilter";
 import Loader from "../../../components/shared/Loader";
 import { useBikeStore } from "../../../store/useBikeStore";
@@ -51,7 +51,9 @@ const BikeList = () => {
         <Loader />
       ) : (
         <>
-          <BikeFilters onSearch={handleSearch} />
+          <Container>
+            <BikeFilters onSearch={handleSearch} />
+          </Container>
 
           <AllBikes
             data={thefts}

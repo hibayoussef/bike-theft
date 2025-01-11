@@ -24,13 +24,14 @@ interface BikeCardProps {
   image?: string;
 }
 
-const AllBikes: React.FC = () => {
+const AllBikes: any = ( data : any) => {
+  console.log('dataaaaaaaaaaaa: ', data)
   // const { thefts, loading, error } = useBikeStore((state) => state); // استخراج الحالة من store
-  const { data, isLoading, isError, refetch }: any = useBikes({
-    page: 1, // استخدام الصفحة 1 كمثال، يمكن تعديلها حسب الحاجة
-    query: "",
-    filters: {},
-  });
+  // const { data, isLoading, isError, refetch }: any = useBikes({
+  //   // page: 1, // استخدام الصفحة 1 كمثال، يمكن تعديلها حسب الحاجة
+  //   query: "",
+  //   filters: {},
+  // });
 
   // تحديث الداتا عند أول تحميل فقط
   // useEffect(() => {
@@ -40,31 +41,31 @@ const AllBikes: React.FC = () => {
   //   }
   // }, [data, thefts]);
 
-  if (isLoading) {
-    return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        height="100vh"
-      >
-        <CircularProgress />
-      </Box>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <Box
+  //       display="flex"
+  //       justifyContent="center"
+  //       alignItems="center"
+  //       height="100vh"
+  //     >
+  //       <CircularProgress />
+  //     </Box>
+  //   );
+  // }
 
-  if (isError) {
-    return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        height="100vh"
-      >
-        <Alert severity="error">{"Failed to load bike theft data"}</Alert>
-      </Box>
-    );
-  }
+  // if (isError) {
+  //   return (
+  //     <Box
+  //       display="flex"
+  //       justifyContent="center"
+  //       alignItems="center"
+  //       height="100vh"
+  //     >
+  //       <Alert severity="error">{"Failed to load bike theft data"}</Alert>
+  //     </Box>
+  //   );
+  // }
 
   return (
     <Container>
@@ -72,8 +73,8 @@ const AllBikes: React.FC = () => {
         Reported Bike Thefts
       </Typography>
       <Grid container spacing={2} justifyContent="center">
-        {data.length > 0 ? (
-          data.map((bike: any) => (
+        {data?.data?.length > 0 ? (
+          data?.data.map((bike: any) => (
             <Grid item xs={6} key={bike.id}>
               <BikeCardIndex
                 title={bike.title}

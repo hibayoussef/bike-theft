@@ -4,11 +4,9 @@ import { Theft } from "../../../store/useBikeStore";
 import { _BikesApi } from "../../../services/bikes/bikes.service";
 
 const useBikes = ({
-  page,
   query,
   filters,
 }: {
-  page: number;
   query?: string;
   filters?: {
     stolenness?: string;
@@ -16,13 +14,13 @@ const useBikes = ({
     dateRange?: { start?: string; end?: string };
   };
 }): UseQueryResult<{ bikes: Theft[]; results_count: number }> => {
-  const setThefts = useBikeStore((state) => state.setThefts);
-  const setLoading = useBikeStore((state) => state.setLoading);
-  const setError = useBikeStore((state) => state.setError);
+  const { currentPage, setThefts, setLoading, setError } = useBikeStore(
+    (state) => state
+  );
 
   const queryResult = useQuery(
-    ["bikes", page, query, filters],
-    () => _BikesApi.index({ page, query, filters }),
+    ["bikes", currentPage, query, filters],
+    () => _BikesApi.index({ page: currentPage, query, filters }),
     {
       onSuccess: (data) => {
         setThefts(data.bikes, data.results_count);
@@ -38,8 +36,6 @@ const useBikes = ({
       },
     }
   );
-
-  setLoading(queryResult.isFetching);
 
   return queryResult;
 };

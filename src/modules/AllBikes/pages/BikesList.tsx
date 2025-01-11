@@ -1,6 +1,5 @@
 import { useState } from "react";
 import BikeFilters from "../../../components/Filters/BikeFilter";
-import AllBikesIndex from "../components/AllBikes";
 import useBikes from "../hooks/useBike";
 import { Typography } from "@mui/material";
 import AllBikes from "../components/AllBikes";
@@ -12,9 +11,11 @@ const BikeList = () => {
     location: "Munich",
     dateRange: { start: undefined, end: undefined },
   });
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { data, isLoading, error } = useBikes({ query, filters });
 
+  console.log("datarrrsrsrs: ", data)
   const handleSearch = (
     searchQuery: string,
     dateRange: { start?: string; end?: string }
@@ -23,11 +24,22 @@ const BikeList = () => {
     setFilters((prev: any) => ({ ...prev, dateRange }));
   };
 
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <div>
       <BikeFilters onSearch={handleSearch} />
       {isLoading && <Typography>Loading...</Typography>}
-      {data && <AllBikes data={data} />}
+      {data && (
+        <AllBikes
+          data={data.bikes}
+          results_count={data.results_count}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 };

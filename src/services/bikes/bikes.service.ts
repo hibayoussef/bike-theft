@@ -13,7 +13,7 @@ export const _BikesApi = {
     };
   }) => {
     const {
-      stolenness = "proximity",
+      stolenness = "all",
       location = "Munich",
       dateRange,
     } = filters;
@@ -41,8 +41,9 @@ export const _BikesApi = {
       // إرسال الطلب باستخدام axios
       const response = await axios.get(url);
 
+      console.log('respososps: ', response)
       // جلب عدد الدراجات الإجمالي من الاستجابة
-      return response?.data?.count || 0;
+      return response?.data?.stolen || 0;
     } catch (err) {
       console.error("Error fetching bike count:", err);
       throw err;
@@ -62,7 +63,7 @@ export const _BikesApi = {
     };
   }) => {
     const {
-      stolenness = "proximity",
+      stolenness = "all",
       location = "Munich",
       dateRange,
     } = filters;

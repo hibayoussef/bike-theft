@@ -23,7 +23,7 @@ const useBikes = ({
     async () => {
       const bikes = await _BikesApi.index({
         page: currentPage,
-        query,
+        query: query,
         filters,
       });
       const results_count = await _BikesApi.getCount({ query, filters });

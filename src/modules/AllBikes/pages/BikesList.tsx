@@ -23,7 +23,6 @@ const BikeList = () => {
     filters,
   });
 
-  // دالة البحث لتحديث الاستعلامات والفلاتر
   const handleSearch = (
     searchQuery: string,
     dateRange: { start?: string; end?: string }

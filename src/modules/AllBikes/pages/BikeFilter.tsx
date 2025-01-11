@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
+import type { FilterProps } from "../../../types/FilterProps";
 
-interface FilterProps {
-  onSearch: (
-    query: string,
-    dateRange: { start?: string; end?: string }
-  ) => void;
-}
+
 
 const BikeFilters: React.FC<FilterProps> = ({ onSearch }) => {
   const [query, setQuery] = useState("");

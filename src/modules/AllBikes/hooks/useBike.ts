@@ -1,7 +1,7 @@
 import { useQuery, UseQueryResult } from "react-query";
 import { useBikeStore } from "../../../store/useBikeStore";
-import { Theft } from "../../../store/useBikeStore";
 import { _BikesApi } from "../../../services/bikes/bikes.service";
+import type { Theft } from "../../../types/Theft";
 
 const useBikes = ({
   query,

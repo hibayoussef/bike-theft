@@ -1,15 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, CardMedia, Box } from "@mui/material";
 import Logo from "../../../assets/images/Logo.png";
-
-export interface BikeCardProps {
-  title?: string;
-  description?: string;
-  theftDate?: string;
-  reportedDate?: string;
-  location?: string;
-  image?: string;
-}
+import type { BikeCardProps } from "../../../types/BikeCardProps";
 
 const AllBikesIndex: React.FC<BikeCardProps> = ({
   title,
@@ -23,7 +15,7 @@ const AllBikesIndex: React.FC<BikeCardProps> = ({
     <Card
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", sm: "row" }, 
+        flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
         maxWidth: 600,
         margin: 2,
@@ -31,16 +23,16 @@ const AllBikesIndex: React.FC<BikeCardProps> = ({
       }}
     >
       {/* {image && ( */}
-        <CardMedia
-          component="img"
-          sx={{
-            width: { xs: "100%", sm: 200 }, // العرض 100% للشاشات الصغيرة
-            height: { xs: 200, sm: 150 }, // ارتفاع مختلف للشاشات الصغيرة
-            objectFit: "cover",
-          }}
-          image={Logo}
-          alt={title}
-        />
+      <CardMedia
+        component="img"
+        sx={{
+          width: { xs: "100%", sm: 200 }, 
+          height: { xs: 200, sm: 150 }, 
+          objectFit: "cover",
+        }}
+        image={Logo}
+        alt={title}
+      />
       {/* )} */}
       <CardContent
         sx={{

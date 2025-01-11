@@ -15,14 +15,6 @@ import BikeCardIndex from "../../BikeCard/pages/BikeCardIndex";
 import { useBikeStore } from "../../../store/useBikeStore";
 import useBikes from "../hooks/useBike";
 
-interface BikeCardProps {
-  title?: string;
-  description?: string;
-  theftDate?: string;
-  reportedDate?: string;
-  location?: string;
-  image?: string;
-}
 
 const AllBikes: any = ( data : any) => {
   console.log('dataaaaaaaaaaaa: ', data)

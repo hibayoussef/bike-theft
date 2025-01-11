@@ -1,45 +1,85 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import BikeFilters from "../../../components/Filters/BikeFilter";
 import useBikes from "../hooks/useBike";
-import { Typography } from "@mui/material";
+import { useBikeStore } from "../../../store/useBikeStore";
 import AllBikes from "../components/AllBikes";
 import Loader from "../../../components/shared/Loader";
+import { Typography } from "@mui/material";
 
 const BikeList = () => {
-  const [query, setQuery] = useState("");
-  const [filters, setFilters] = useState({
-    stolenness: "all",
-    location: "Munich",
-    dateRange: { start: undefined, end: undefined },
+  const {
+    thefts,
+    totalThefts,
+    loading,
+    error,
+    currentPage,
+    setCurrentPage,
+    filters,
+    setThefts,
+    setError,
+  } = useBikeStore((state) => state);
+
+  const { refetch } = useBikes({
+    query: filters.query,
+    filters,
   });
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const { data, isLoading, error } = useBikes({ query, filters });
-
-  console.log("datarrrsrsrs: ", data)
+  // دالة البحث لتحديث الاستعلامات والفلاتر
   const handleSearch = (
     searchQuery: string,
     dateRange: { start?: string; end?: string }
   ) => {
-    setQuery(searchQuery);
-    setFilters((prev: any) => ({ ...prev, dateRange }));
+    useBikeStore.setState((state) => ({
+      ...state,
+      filters: {
+        ...state.filters,
+        query: searchQuery,
+        dateRange,
+      },
+    }));
+    setCurrentPage(1); // إعادة الصفحة إلى 1 عند البحث الجديد
+    refetch();
   };
 
+  // دالة تغيير الصفحة
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
+    refetch();
   };
+
+  useEffect(() => {
+    // عند حدوث خطأ
+    if (error) {
+      setError(error);
+    }
+  }, [error]);
 
   return (
     <div>
+      {/* شريط الفلاتر */}
       <BikeFilters onSearch={handleSearch} />
-      {isLoading && <Loader />}
-      {data && (
+
+      {/* عرض حالة التحميل */}
+      {loading && <Loader />}
+
+      {/* عرض الدراجات */}
+      {/* {!loading && thefts.length > 0 && ( */}
         <AllBikes
-          data={data.bikes}
-          results_count={data.results_count}
+          data={thefts}
+          results_count={totalThefts}
           currentPage={currentPage}
           onPageChange={handlePageChange}
         />
+      {/* )} */}
+
+      {/* حالة الخطأ */}
+      {!loading && error && (
+        <Typography color="error">Error: {error}</Typography>
+      )}
+
+      {/* حالة عدم وجود بيانات */}
+      {!loading && thefts.length === 0 && !error && (
+        <Typography>No bike theft cases found.</Typography>
       )}
     </div>
   );

@@ -18,10 +18,13 @@ const useBikes = ({
     (state) => state
   );
 
-  // دالة للحصول على البيانات من الـ API
+  // استدعاء البيانات باستخدام react-query
   const queryResult = useQuery(
     ["bikes", currentPage, query, filters],
     async () => {
+      setLoading(true); // تفعيل حالة التحميل
+
+      // جلب البيانات من الـ API
       const bikes = await _BikesApi.index({
         page: currentPage,
         query,
@@ -32,16 +35,16 @@ const useBikes = ({
       return { bikes, results_count };
     },
     {
-      onSuccess: (data) => {
-        setThefts(data.bikes, data.results_count);
-        setLoading(false);
+      onSuccess: (data: any) => {
+        setThefts(data.bikes, data.results_count); // تحديث البيانات في `zustand`
       },
       onError: (error: any) => {
         console.error("Error fetching bikes:", error);
-        setError(error.message || "Failed to fetch bikes");
-        setLoading(false);
+        setError(error.message || "Failed to fetch bikes"); // تسجيل الخطأ في `zustand`
       },
-      onSettled: () => setLoading(false),
+      onSettled: () => {
+        setLoading(false); // إيقاف حالة التحميل
+      },
     }
   );
 

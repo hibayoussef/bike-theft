@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.png";
 import type { BikeCardProps } from "../../../types/BikeCardProps";
 
-const BikeCard: React.FC<BikeCardProps & { id: number }> = ({
-  id,
+const BikeCard: React.FC<BikeCardProps> = ({
   title,
   description,
   theftDate,
@@ -15,13 +14,13 @@ const BikeCard: React.FC<BikeCardProps & { id: number }> = ({
 }) => {
   const navigate = useNavigate();
 
-  const handleCardClick = () => {
-    navigate(`/bike/${id}`);
-  };
+  // const handleCardClick = () => {
+  //   navigate(`/bike/${id}`);
+  // };
 
   return (
     <Card
-      onClick={handleCardClick}
+      // onClick={handleCardClick}
       sx={{
         display: "flex",
         flexDirection: { xs: "column", sm: "row" },

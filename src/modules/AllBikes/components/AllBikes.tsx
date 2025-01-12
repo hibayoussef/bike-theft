@@ -6,14 +6,14 @@ import NoData from "../../../components/shared/noData/NoData";
 
 const AllBikes = ({
   data = { bikes: [] },
-  results_count = 0,
-  currentPage = 1,
-  onPageChange = () => {},
+  results_count,
+  currentPage,
+  onPageChange,
 }: {
-  data?: any;
-  results_count?: number;
-  currentPage?: number;
-  onPageChange?: (newPage: number) => void;
+  data: any;
+  results_count: number;
+  currentPage: number;
+  onPageChange: (newPage: number) => void;
 }) => {
   const totalPages = Math.ceil(results_count / 10); // Assuming 10 bikes per page
 
@@ -59,7 +59,7 @@ const AllBikes = ({
         >
           <Pagination
             page={currentPage}
-            onChange={(page: any) => onPageChange(page)}
+            onChange={(e, page) => onPageChange(page)}
             count={totalPages}
             sx={{
               ".MuiPaginationItem-root.Mui-selected": {

@@ -1,20 +1,7 @@
 import {
-  Article,
-  Ballot,
-  BorderColor,
-  Grade,
-  Groups2,
   Home,
-  JoinFull,
   KeyboardReturn,
-  Language,
-  ListAlt,
-  Login,
-  Logout,
-  ManageAccounts,
-  Notifications,
-  PersonAdd,
-  SignalCellularAlt,
+  Login
 } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
@@ -30,13 +17,13 @@ import * as React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 // import { _AuthApi } from "../../../../services/auth/auth.service";
 // import ProfileDetailsHeader from "./profileDetailsHeader";
-import PasswordIcon from "@mui/icons-material/Password";
 
 type Props = {
-  handleOpen: () => void;
-  handleClose: () => void;
-  open: boolean;
+  handleOpen?: () => void; 
+  handleClose?: () => void; 
+  open?: boolean;
 };
+
 
 export default function SmallScreenSideBar({}: // handleOpen,
 // handleClose,

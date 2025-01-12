@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-const Layout = ({ children }) => {
+const Layout = ({ children }: any) => {
   return (
     <div>
       <Header />

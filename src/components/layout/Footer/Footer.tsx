@@ -7,7 +7,6 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import {
   Box,
-  CircularProgress,
   Divider,
   Grid,
   Link,
@@ -15,8 +14,6 @@ import {
 } from "@mui/material";
 import React from "react";
 import LogoFooter from "../../../assets/images/Logo.png";
-// import { useHome } from "../../../../services/home/useHome";
-// import { useContact } from "../../../admin/pages/siteControl/hooks/useContact";
 import {
   ContentIcon,
   FooterContainer,
@@ -24,25 +21,23 @@ import {
   FooterSection,
 } from "./Footer.styles";
 
-interface Contact {
-  value: string;
-}
+// interface Contact {
+//   value: string;
+// }
 
-interface ContactData {
-  contacts: Contact[];
-}
+// interface ContactData {
+//   contacts: Contact[];
+// }
 
-interface AboutUsContent {
-  description: string;
-}
+// interface AboutUsContent {
+//   description: string;
+// }
 
-interface AboutUsData {
-  contents: AboutUsContent[];
-}
+// interface AboutUsData {
+//   contents: AboutUsContent[];
+// }
 
 const Footer: React.FC = () => {
-  //   const { data, isLoading } = useContact();
-  //   const { data: aboutUsData, isLoading: isLoadingAboutUs } = useHome();
 
   const { data } = {
     data: {
@@ -111,9 +106,6 @@ const Footer: React.FC = () => {
                   direction: "rtl",
                 }}
               >
-                {/* {isLoading ? (
-                  <CircularProgress style={{ color: "2C3971" }} />
-                ) : ( */}
                 <>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <LinkedInIcon />

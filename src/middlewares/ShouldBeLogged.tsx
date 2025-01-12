@@ -2,7 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { _AuthApi } from "../services/auth/auth.service";
 
-const ShouldBeLogged = ({ children }) => {
+const ShouldBeLogged = ({ children }: any) => {
   let location = useLocation();
 
   if (!_AuthApi.getToken()) {

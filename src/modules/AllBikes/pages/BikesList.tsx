@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import BikeFilters from "../../../components/Filters/BikeFilter";
 import Loader from "../../../components/shared/Loader";
 import { useBikeStore } from "../../../store/useBikeStore";
@@ -10,12 +10,9 @@ const BikeList = () => {
     thefts,
     totalThefts,
     loading,
-    error,
     currentPage,
     setCurrentPage,
     filters,
-    setThefts,
-    setError,
   } = useBikeStore((state) => state);
 
   const { refetch } = useBikes({

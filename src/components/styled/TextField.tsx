@@ -20,15 +20,15 @@ export const TextFieldStyled = styled(TextField)(({ theme }) => ({
   },
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {
-      borderColor: theme.palette.origin.main,
+      // borderColor: theme.palette.origin.main,
     },
   },
   "&:hover .MuiOutlinedInput-notchedOutline": {
-    borderColor: theme.palette.origin.main,
+    // borderColor: theme.palette.origin.main,
   },
   "& .MuiOutlinedInput-notchedOutline": {
     borderRadius: "14px",
-    borderColor: theme.palette.text.main,
+    // borderColor: theme.palette.text.main,
   },
   "& .MuiFormHelperText-root": {
     textAlign: "right",
@@ -45,11 +45,11 @@ export const TextFieldStyled = styled(TextField)(({ theme }) => ({
       "box-shadow",
     ]),
     "&:hover": {
-      borderColor: theme.palette.origin.main,
+      // borderColor: theme.palette.origin.main,
     },
     "&.Mui-focused": {
       backgroundColor: "transparent",
-      borderColor: theme.palette.origin.main,
+      // borderColor: theme.palette.origin.main,
     },
   },
 }));

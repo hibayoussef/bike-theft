@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
 
 // Styled Box component
-export const StyledBox = styled(Box)(({ theme }) => ({
+export const StyledBox = styled(Box)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -12,7 +12,7 @@ export const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 // Styled Typography component
-export const StyledTypography = styled(Typography)(({ theme }) => ({
+export const StyledTypography = styled(Typography)(() => ({
   fontSize: "15px",
   textAlign: "center",
   position: "absolute",

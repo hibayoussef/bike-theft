@@ -4,8 +4,8 @@ import type { FilterProps } from "../../types/FilterProps";
 
 const BikeFilters: React.FC<FilterProps> = ({ onSearch }) => {
   const [query, setQuery] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [startDate] = useState("");
+  const [endDate] = useState("");
 
   const handleSearch = () => {
     onSearch(query, { start: startDate, end: endDate });

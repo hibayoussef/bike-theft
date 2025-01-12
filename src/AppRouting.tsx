@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/pages/home";
 import React from "react";
 import Loader from "./components/shared/Loader";
-import { ReactQueryDevtools } from "react-query/types/devtools";
 import BikeCardDetailsRouting from "./modules/BikeCardDetails/BikeCardDetailsRouting";
 
 const AppRouting = () => {
@@ -30,7 +29,6 @@ const AppRouting = () => {
         element={
           <React.Suspense fallback={<Loader />}>
             <BikeCardDetailsRouting />
-            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
           </React.Suspense>
         }
       />

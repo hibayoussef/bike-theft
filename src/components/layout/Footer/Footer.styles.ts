@@ -40,7 +40,7 @@ export const FooterSection = styled(Box)(({ theme }) => ({
   alignItems: "flex-end",
 }));
 
-export const IconButtonStyled = styled(Box)(({ theme }) => ({
+export const IconButtonStyled = styled(Box)(() => ({
   display: "flex",
   gap: "10px",
 }));

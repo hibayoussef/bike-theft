@@ -1,11 +1,10 @@
 // MainLayout.jsx
 import { Box } from "@mui/material";
-import React from "react";
+import Header from "../components/layout/Header/Header";
 import ContentWrapper from "../components/styled/ContentWrapper";
 import PageWrapper from "../components/styled/PageWrapper";
-import Header from "../components/layout/Header/Header";
 
-const MainLayout = ({ title, headerComponent, children }: any) => {
+const MainLayout = ({ headerComponent, children }: any) => {
   return (
     <>
       <Header />

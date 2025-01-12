@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { _AuthApi } from "../services/auth/auth.service";
 import PropTypes from "prop-types";
 
-const ShouldNotBeLogged = ({ children }) => {
+const ShouldNotBeLogged = ({ children }: any) => {
   if (_AuthApi.getToken()) {
     return <Navigate to="/" />;
   }

@@ -1,6 +1,6 @@
+import { InternalAxiosRequestConfig } from "axios";
 import { _AuthApi } from "../services/auth/auth.service";
 import { _axios as Axios } from "./http-config";
-import { AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
 
 export const HttpRequestInterceptor = () => {
   Axios.interceptors.request.use(

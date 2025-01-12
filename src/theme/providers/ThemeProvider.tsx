@@ -12,8 +12,6 @@ export const ThemeProviderWraper: React.FC<ThemeProviderWrapperProps> = ({
   children,
 }) => {
   const theme = createTheme({
-    direction: "rtl",
-    mode: "light",
     responsiveFontSizes: true,
   });
 

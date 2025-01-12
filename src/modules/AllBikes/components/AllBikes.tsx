@@ -33,7 +33,7 @@ const AllBikes = ({
           data?.bikes?.map((bike: Theft) => (
             <Grid item xs={12} sm={12} md={6} key={bike.id}>
               <BikeCard
-                id={bike.id}
+                // id={bike.id}
                 title={bike.title}
                 description={bike.description}
                 theftDate={bike.date_stolen}

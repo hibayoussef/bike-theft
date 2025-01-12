@@ -1,6 +1,5 @@
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
-import { Card, CardContent, Typography, CardMedia, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.png";
 import type { BikeCardProps } from "../../../types/BikeCardProps";
 
@@ -12,7 +11,6 @@ const BikeCard: React.FC<BikeCardProps> = ({
   location,
   image,
 }) => {
-  const navigate = useNavigate();
 
   // const handleCardClick = () => {
   //   navigate(`/bike/${id}`);

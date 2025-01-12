@@ -284,7 +284,7 @@ export const darkThemeOptions = {
         input: {
           "&::placeholder": {
             opacity: 1,
-            color: colors.text.secondary,
+            // color: colors.text.secondary,
           },
         },
       },

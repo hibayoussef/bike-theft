@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import BikeDetailsComponent from "./BikeCardComponent";
-import BikeCardIndex from "./pages/BikeCardIndex";
 import BikeCardComponent from "./BikeCardComponent";
+import BikeCardIndex from "./pages/BikeCardIndex";
 
 const BikeCardRouting = () => {
   return (

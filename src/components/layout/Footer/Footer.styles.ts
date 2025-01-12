@@ -26,7 +26,7 @@ export const FooterContent = styled(Box)(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-export const ContentIcon = styled(Box)(({ theme }) => ({
+export const ContentIcon = styled(Box)(() => ({
   display: "flex",
   flexDirection: "row-reverse",
   alignItems: "center",

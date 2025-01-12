@@ -5,7 +5,7 @@ import Logo from "../../../assets/images/Logo.png";
 import NoData from "../../../components/shared/noData/NoData";
 
 const AllBikes = ({
-  data = { bikes: [] },
+  data= { bikes: [] },
   results_count,
   currentPage,
   onPageChange,
@@ -44,7 +44,7 @@ const AllBikes = ({
             </Grid>
           ))
         ) : (
-          <NoData text="No bike theft cases found." />
+         <NoData text="No bike theft cases found."/>
         )}
       </Grid>
 
@@ -59,7 +59,7 @@ const AllBikes = ({
         >
           <Pagination
             page={currentPage}
-            onChange={(e, page) => onPageChange(page)}
+            onChange={(_, page) => onPageChange(page)}
             count={totalPages}
             sx={{
               ".MuiPaginationItem-root.Mui-selected": {

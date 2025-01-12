@@ -30,6 +30,7 @@ const BikeCard: React.FC<BikeCardProps & { id: number }> = ({
         margin: 1,
         boxShadow: 3,
         cursor: "pointer",
+        minHeight: 300,
       }}
     >
       <CardMedia

@@ -21,6 +21,7 @@ const useBikes = ({
   const queryResult = useQuery(
     ["bikes", currentPage, query, filters],
     async () => {
+         setLoading(true);
       const bikes = await _BikesApi.index({
         page: currentPage,
         query: query,
